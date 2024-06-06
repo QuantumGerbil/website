@@ -1,34 +1,43 @@
+:root {
+  --font-color: #E4DEED;
+  --color1: rgb(0,0,0);
+  --color2: rgb(31,24,34);
+  --color3: rgb(48,27,40);
+}
+
 a {
   display:block;
 }
+
 body {
   display: grid;
-  grid-template-columns: 1fr 2fr;
-  grid-template-rows: 20vh 70vh 10vh;
-  grid-template-areas:
-    "header main"
-    "nav main"
-    "footer main";
-  grid-gap: 0.1em;
+  grid-template-columns: auto auto;
   margin: 0px;
-  overflow: hidden;
   background: rgb(0,0,0);
-  background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(31,24,34,1) 73%, rgba(48,27,40,1) 100%);
-  color: rgb(200,200,200);
+  background: linear-gradient(90deg, var(--color1) 0%, var(--color2) 73%, var(--color3) 100%);
+  color: var(--font-color);
+}
+
+.column1 {
+  display: grid;
+  grid-template-rows: 1fr 3fr 1fr;
+  height: 100vh;
+}
+
+.column2 {
+  display: flex;
+  flex-direction: column;
 }
 
 header {
-  grid-area: header;
   text-align: center;
 }
 
 nav {
-  grid-area: nav;
   text-align: center;
 }
 
 footer {
-  grid-area: footer;
   text-align: center;
 }
 
@@ -37,18 +46,17 @@ footer>span{
 }
 
 main {
-  grid-area: main;
+  overflow-y: scroll;
 }
 
 header,
 nav,
 main,
 footer {
-  padding: 1em;
+  padding: 2em;
 }
 
-section{
-  margin: 1em;
+section {
   padding: 1em;
 }
 
@@ -58,4 +66,27 @@ header>h1{
 
 h1+p {
   margin-top:0px;
+}
+
+.title {
+  font-size: 4em;
+}
+
+.dot {
+  height: 2.5rem;
+  width: 2.5rem;
+  background-color: var(--font-color);
+  border-radius: 50%;
+  display: inline-block;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.glyph {
+  padding: 4px;
+  width: 2em;
+  height: 2em;
+  text-align: center;
+  vertical-align:bottom !important;
+  align-items:center;
 }
